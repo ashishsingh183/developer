@@ -1,0 +1,19 @@
+def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        result = {}
+        long = ""
+        for i in s:
+           if i not in long:
+               long += i
+           else: 
+               result[len(long)] = long
+               long = long[long.index(i)+1:] + i
+
+        result[len(long)] = long 
+
+        if result:
+           return max(result)
+        return 0
